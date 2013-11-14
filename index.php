@@ -23,6 +23,19 @@
         <![endif]-->
 
         <!-- Add your site or application content here -->
+
+        <div id="header">
+            <div class="header-inner">
+                <h1>The Atlas Project</h1>
+                <nav>
+                    <a href="#">Map</a>
+                    <a href="#">Blog</a>
+                    <a href="#">Tiles</a>
+                    <a href="#">Profile</a>
+                </nav>
+            </div>
+        </div>
+
         <div id="viewport">
             <div id="wall"></div>
         </div>
