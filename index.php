@@ -42,6 +42,9 @@
 
         <div id="tile_view" style="display:none;">
             <img id="large_tile" height="600px" width="600px" />
+            <div id="view_buttons">
+                <img id="close_view" class="button" src="img/cancel.png"/>
+            </div>
         </div>
 
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>

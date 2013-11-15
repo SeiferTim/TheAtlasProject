@@ -110,7 +110,7 @@ body, html {
 }
 
 #wall {
-
+    cursor:url(../img/joy.png);
 }
 
 #wall .tile {
@@ -124,9 +124,12 @@ body, html {
     border: 1px solid #777;
 }
 
+.not_empty {
+    cursor:url(../img/zoom.png);
+}
+
 .not_empty:hover {
-    border: 1px solid yellow
-    ;
+    border: 1px solid yellow;
 }
 
 #header {
