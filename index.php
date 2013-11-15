@@ -40,6 +40,10 @@
             <div id="wall"></div>
         </div>
 
+        <div id="tile_view" style="display:none;">
+            <img id="large_tile" height="600px" width="600px" />
+        </div>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
