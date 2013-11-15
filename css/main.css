@@ -109,8 +109,8 @@ body, html {
     font-family: 'Press Start 2P', cursive;
 }
 
-#wall {
-    cursor:url(../img/joy.png);
+#wall ._tile {
+    cursor:url(../img/joy.png),move;
 }
 
 #wall .tile {
