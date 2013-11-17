@@ -46,14 +46,18 @@ $(document).ready(function() {
 	map.center(0,0);
 	map.draggable(true);
 
+	$('#close_view').click(function(){
+		$('#tile_view').fadeOut(200,'swing');
+	});
 	
 
 });
 
 function imgClick(eventObject) {
 	var src = $(this).attr('src');
+	$('#tile_view').fadeIn(200,'swing');
 	$('#large_tile').attr('src', src).load(function() {
 		$(this).width(600).height(600);
-		$('#tile_view').fadeIn(200,'swing');
+		
 	});
 }

@@ -44,6 +44,8 @@
             <img id="large_tile" height="600px" width="600px" />
             <div id="view_buttons">
                 <img id="close_view" class="button" src="img/cancel.png"/>
+                <img id="love_view" class="button" src="img/heart.png"/>
+                <img id="flag_view" class="button" src="img/cancelorb.png"/>
             </div>
         </div>
 

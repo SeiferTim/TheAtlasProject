@@ -120,12 +120,17 @@ body, html {
     background-color:#000;
 }
 
+
+#close_view {
+    cursor:url(../img/pointer.png),pointer;
+}
+
 .tile_img {
     border: 1px solid #777;
 }
 
 .not_empty {
-    cursor:url(../img/zoom.png);
+    cursor:url(../img/zoom.png),zoom;
 }
 
 .not_empty:hover {
@@ -203,6 +208,21 @@ body, html {
     margin-left:-300px;
 }
 
+#view_buttons {
+    position: fixed;
+    top:50%;
+    height:600px;
+    width:52px;
+    left:50%;
+    margin-top:-300px;
+    margin-left:300px;
+    z-index:52;
+}
+
+.button {
+    padding:10px;
+    cursor:pointer;
+}
 
 /* ==========================================================================
    Helper classes
