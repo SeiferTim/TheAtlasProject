@@ -32,6 +32,7 @@
 		// Use self to reduce confusion about this.
 		var self = this;
 
+		var $currentLoaded = 0;
 		var $draggable = $(draggable);
 		var $viewport = $draggable.parent();
 		$draggable.css({
@@ -53,7 +54,9 @@
 			range_row: [-1000000, 1000000],
 			oncreate: function($element, i, j) {
 				$element.text(i + "," + j);
-			}
+			},
+			onstart: function(i) {},
+			onfinish: function() {}
 		};
 		// Override tile options.
 		for (var i in tile_options) {
@@ -124,6 +127,7 @@
 		};
 		
 		var update_tiles = function() {
+			
 			var $this = $draggable;
 			var $parent = $this.parent();
 
@@ -138,8 +142,11 @@
 			var visible_left_col = Math.ceil(-pos.left / _to.width) - 1,
 				visible_top_row = Math.ceil(-pos.top / _to.height) - 1;
 
+			_to.onstart((visible_left_col + viewport_cols) * (visible_top_row + viewport_rows));
+
 			for (var i = visible_left_col; i <= visible_left_col + viewport_cols; i++) {
 				for (var j = visible_top_row; j <= visible_top_row + viewport_rows; j++) {
+					$currentLoaded = i * j;
 					if (grid[i] === undefined) {
 						grid[i] = {};
 					} else if (grid[i][j] === undefined) {
@@ -147,12 +154,17 @@
 					}
 				}
 			}
+			_to.onfinish();
 		};
 		
 		
 		// Public Methods
 		//-----------------
 		
+		self.currentLoaded = function() {
+			return $currentLoaded;
+		}
+
 		self.draggable = function() {
 			return $draggable;
 		};
