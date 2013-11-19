@@ -1,11 +1,9 @@
 function getTile(target, col, row) {
-
 	$.getJSON('./js/functions.php?action=getTileID&col=' + col + '&row=' + row, function(data) {
-
 		if (data.id != -1)
 		{
 			$('<img class="tile_img"/>').attr('src','./js/functions.php?action=getTileImg&id=' + data.id).load(function(){
-				$(this).attr('class', 'tile_img not-empty').width(50).height(50).click(imgClick).appendTo(target);
+				$(this).attr('class', 'tile_img not-empty').width(50).height(50).dblclick(imgClick).appendTo(target);
 			});
 		}
 		else
@@ -14,19 +12,7 @@ function getTile(target, col, row) {
 				$(this).attr('class', 'tile_img empty').width(50).height(50).appendTo(target);
 			});
 		}
-
-
-	});
-
-	
-}
-
-function loadImage(path, target, img_class) {
-	//console.log(target);
-	var img = $('<img class="' + img_class + ' src="' + path + '"/>').load(function(){
-		console.log(target.attr('col') + " " + target.attr('row'))
-		$(this).width(50).height(50).appendTo(target).click(imgClick);
-	});
+	});	
 }
 
 function drawMap() {
