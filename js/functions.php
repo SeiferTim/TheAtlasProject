@@ -18,13 +18,28 @@
 		case 'getEmptyTile':
 			getEmptyTile();
 			break;
-		case 'getUserDetails':
-			getUserDetails($_GET['id']);
+		case 'getUserName':
+			getUserName($_GET['id']);
 			break;
 		default:
 	}
 
-	
+	function getUserName($id)
+	{
+		$DBH = db_connect();
+		if($DBH)
+		{
+			$STH = $DBH->prepare("SELECT `username` FROM `users` WHERE `id` = :id LIMIT 1");
+			$STH->bindParam(':id', $id, PDO::PARAM_INT);
+			$STH->execute();
+			$result = $STH->fetch(PDO::FETCH_ASSOC);
+			if ($result)
+				print json_encode($result);
+			else
+				print json_encode(['error'=>'User not found']);
+			$DBH = null;
+		}
+	}
 
 	function getTileID($col, $row)
 	{
@@ -51,7 +66,7 @@
 		$DBH = db_connect();
 		if ($DBH)
 		{
-			$STH = $DBH->prepare("SELECT `creator`, `createdon`, `rating`, `level`, `position` FROM `tiles` WHERE `id` = :id LIMIT 1");
+			$STH = $DBH->prepare("SELECT `user_id`, `createdon`, `rating`, `level`, `position` FROM `tiles` WHERE `id` = :id LIMIT 1");
 			$STH->bindParam(':id', $id, PDO::PARAM_INT);
 			$STH->execute();
 			$result = $STH->fetch(PDO::FETCH_ASSOC);
@@ -94,6 +109,7 @@
 			if ($result)
 			{
 				header('Content-type: image/png');
+				header('Content-length: ' + strlen($image));
 				print $image;
 			}
 			$DBH = null;
@@ -114,6 +130,7 @@
 			if ($result)
 			{
 				header('Content-type: image/png');
+				header('Content-length: ' + strlen($image));
 				print $image;
 			}
 			$DBH = null;

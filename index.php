@@ -46,6 +46,10 @@
                 <img id="close_view" class="button" src="img/cancel.png"/>
                 <img id="love_view" class="button" src="img/heart.png"/>
                 <img id="flag_view" class="button" src="img/cancelorb.png"/>
+                <div id="creator" class="view-detail"></div>
+                <div id="createdon" class="view-detail"></div>
+                <div id="rating" class="view-detail"></div>
+                <div id="level" class="view-detail"></div>
             </div>
         </div>
 
