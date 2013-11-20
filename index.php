@@ -40,7 +40,7 @@
             <div id="wall"></div>
         </div>
 
-        <div id="tile_view" style="display:none;">
+        <div id="tile_view" class="screen-overlay" style="display:none;">
             <img id="large_tile" height="600px" width="600px" />
             <div id="view_buttons">
                 <img id="close_view" class="button" src="img/cancel.png"/>
@@ -53,11 +53,21 @@
             </div>
         </div>
 
+        <div id="tile_draw" class="screen-overlay" style="display:none;">
+            <div id="tile_draw_surface"></div>
+            <div id="draw_buttons">
+                <img id="close_draw" class="button" src="img/cancel.png"/>
+                <input id="iColor" type="text" /><button id="color">Set Color</button>
+                <button id="clear">Clear Me</button>
+            </div>
+        </div>
+
         <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
         <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.2.min.js"><\/script>')</script>
         <script src="js/plugins.js"></script>
         <script src="js/jquery-ui.min.js"></script>
         <script src="js/jquery.infinitedrag.js"></script>
+        <script src="js/jquery.dooscrib.js"></script>
         <script src="js/main.js"></script>
 
         <!-- Google Analytics: change UA-XXXXX-X to be your site's ID. -->

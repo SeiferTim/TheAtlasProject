@@ -120,11 +120,6 @@ body, html {
     background-color:#000;
 }
 
-
-#close_view {
-    cursor:pointer;
-}
-
 .tile_img {
     border: 1px solid #777;
 }
@@ -187,7 +182,7 @@ body, html {
     color:#333;
 }
 
-#tile_view {
+.screen-overlay {
     z-index:500;
     width:100%;
     height:100%;
@@ -199,6 +194,24 @@ body, html {
 
 }
 
+
+
+#tile_draw_surface {
+    position: fixed;
+    top:50%;
+    left:50%;
+    z-index: 51;
+    margin-top:-25px;
+    margin-left:-25px;
+}
+
+#tile_draw_surface canvas {
+
+    /*-webkit-transform:scale(12);
+    //transform:scale(12);*/
+    cursor:crosshair;
+}
+
 #tile_view #large_tile {
     position: fixed;
     top:50%;
@@ -208,7 +221,7 @@ body, html {
     margin-left:-300px;
 }
 
-#view_buttons {
+#view_buttons, #draw_buttons {
     position: fixed;
     top:50%;
     height:600px;

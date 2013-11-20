@@ -2,6 +2,8 @@ var tilesToLoad = 0;
 var tilesLoaded = 0;
 var animClass = 'la-animate';
 
+var drawing_canvas;
+
 function loadedTile() {
 	tilesLoaded++;
 }
@@ -66,13 +68,31 @@ $(document).ready(function() {
 		$('#tile_view').fadeOut(200,'swing');
 		return false;
 	});
-	
+	$('#close_draw').click(function(){
+		$('#tile_draw').fadeOut(200,'swing');
+		return false;
+	});
+	drawing_canvas = new $('#tile_draw_surface').dooScribPlugin({
+		width:50,
+		height:50,
+		cssClass: 'drawSurface',
+		penSize:1
+	});
+	$('#color').click(function(){
+		drawing_canvas.lineColor($('#iColor').val());
+	});
+	var color = drawing_canvas.lineColor('#333');
+	$('#iColor').val('#333')
+$	('#clear').click(function(){
+		drawing_canvas.clearSurface();
+	});
+	drawing_canvas.clearSurface();
 	return false;
 });
 
 function blankClick(eventObject) {
 	// placeholder for now...
-	
+	$('#tile_draw').fadeIn(200,'swing');
 }
 
 function imgClick(eventObject) {
